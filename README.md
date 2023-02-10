@@ -19,11 +19,11 @@
 
 
 
-
-
-
-<br>
-//Comando utilizado para configurar ou criar um novo package
 <br>
 //npm init -y
 <br>
+//npm i express
+<br>
+//npm install -g nodemon
+<br>
+//npm install --save-dev nodemon
