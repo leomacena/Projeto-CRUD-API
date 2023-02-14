@@ -5,9 +5,6 @@
   
 <h3>Módulo 5 – CRUD API</h3><br>
 
-  <h2>CONTEXTO</h2>
-<p><h4>Você e sua equipe foram escalados para desenvolverem propostas de APIs que serão o produto mínimo viável de um aplicativo.Vocês devem escolher o tema do aplicativo para identificar as entidades.</h4></p>
-
 <h2>PROPOSTA DO PROJETO</h2>
 <p><h4>Nesse projeto você e sua squad serão responsáveis por definir quais são as entidades que o projeto precisa contemplar e cada um de vocês será responsável por implementar uma dessas entidades.</h4></p>
 
