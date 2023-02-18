@@ -4,7 +4,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./database.db');
 
-// Clientes
+// Customers (Clientes)
 
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const CUSTOMERS_SCHEMA = `
@@ -52,3 +52,65 @@ function populaTabelaCustomers() {
         if (error) console.log("Erro ao popular tabela CUSTOMERS")
     })
 }
+
+// Books (Livros)
+
+// Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
+const BOOKS_SCHEMA = `
+CREATE TABLE IF NOT EXISTS TAREFAS (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "NOME" varchar(70),
+    "AUTOR" varchar(90),
+    "EDITORA" varchar(70),
+    "IDIOMA" varchar(40),
+    "PAGINAS" integer,
+    "ANO" integer, 
+    "ID_CUSTOMERS" INTEGER,
+    FOREIGN KEY(ID_CUSTOMERS) REFERENCES CUSTOMERS(ID)
+);
+`;
+
+// inserção dos registros na tabela Books (livros).
+const ADD_BOOKS_DATA = `
+INSERT INTO BOOKS (NOME, AUTOR, EDITORA, IDIOMA, PAGINAS, ANO, ID_CUSTOMERS)
+VALUES
+('Pai Rico, Pai Pobre', 'Robert T. Kiyosaki', 'Alta Books', 'Português', '336', '2018', 15),
+('Pedagogia do Oprimido', 'Paulo Freire', 'Paz & Terra', 'Português', '256', '2019', 14),
+('Investimentos inteligentes', 'Gustavo Cerbasi', 'Editora Sextante', 'Português', '256', '1999', 13),
+('20 regras de ouro para educar filhos e alunos', 'Augusto Cury', 'Academia', 'Português', '208', '2017', 12),
+('Pais brilhantes, professores fascinantes', 'Augusto Cury', 'Editora Sextante', 'Português', '176', '2018', 11),
+('É assim que acaba', 'Colleen Hoover', 'Galera', 'Português', '368', '2018', 10),
+('A revolução dos bichos', 'George Orwell', 'Companhia das Letras', 'Português', '152', '2007', 9),
+('O Diário Perdido de Gravity Falls', 'Alex Hirsch', 'Universo dos Livros', 'Português', '288', '2020', 8),
+('Os sete maridos de Evelyn Hugo', 'Taylor Jenkins Reid', 'Paralela', 'Português', '360', '2019', 7),
+('A garota do lago', 'Charlie Donlea', 'Faro Editorial', 'Português', '296', '2017', 6),
+('Federer', 'Christopher Clarey', 'Intrínseca', 'Português', '432', '2021', 5),
+('Guardiola confidencial', 'Perarnau Martí', 'Editora Grande Área', 'Português', '416', '2015', 4),
+('A História do Futebol para quem tem pressa', 'Márcio Trevisan', 'Valentina', 'Português', '200', '2019', 3),
+('Escola brasileira de futebol', 'Paulo Vinícius Coelho (PVC)', 'Objetiva', 'Português', '294', '2018', 2),
+('O algoritmo da vitória', 'José Salibi Neto', 'Planeta Estratégia', 'Português', '320', '2020', 1)
+`
+
+// Função responsável por criar a tabela "BOOKS" no banco de dados SQLite. O callback verifica se ocorreu algum erro durante a execução da operação e, em caso positivo, imprime uma mensagem de erro no console.
+function criaTabelaBooks() {
+    db.run(BOOKS_SCHEMA, (error) => {
+        if(error) console.log("Erro ao criar tabela de Books");
+    });
+}
+
+// Função responsável pela inserção dos registros na tabela "BOOKS" no banco de dados SQLite. O callback verifica se ocorreu algum erro durante a execução da operação e, em caso positivo, imprime uma mensagem de erro no console. 
+function populaTabelaBooks() {
+    db.run(ADD_BOOKS_DATA, (error) => {
+        if(error) console.log("Erro ao popular tabela de Books");
+    });
+}
+
+// Funções executadas de forma síncrona, uma após a outra, dentro da função serialize(). Ao final da execução dessas funções, o banco de dados estará criado e populado com as informações fornecidas. 
+db.serialize( () => {
+    criaTabelaCustomers();
+    populaTabelaCustomers();
+    criaTabelaBooks();
+    populaTabelaBooks();
+});
+
+
