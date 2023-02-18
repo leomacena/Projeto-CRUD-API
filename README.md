@@ -35,6 +35,8 @@ O projeto deverá obrigatoriamente:
 <li> npm install express</li>
 <li> npm install -g nodemon</li>
 <li> npm install --save-dev nodemon</li>
+<li> npm install cors</li>
+<li> npm install sqlite3</li>
 </ul>
 
 <h2>EXECUTAR O PROJETO:</h2>
