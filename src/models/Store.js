@@ -1,6 +1,5 @@
 class Store {
-    constructor(id, nome, email, telefone, responsavel) {
-      this.id = id
+    constructor(nome, email, telefone, responsavel) {
       this.nome = nome
       this.email = email
       this.telefone = telefone
