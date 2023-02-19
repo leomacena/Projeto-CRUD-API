@@ -57,7 +57,7 @@ function populaTabelaCustomers() {
 
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const BOOKS_SCHEMA = `
-CREATE TABLE IF NOT EXISTS TAREFAS (
+CREATE TABLE IF NOT EXISTS BOOKS (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
     "NOME" varchar(70),
     "AUTOR" varchar(90),
@@ -112,5 +112,3 @@ db.serialize( () => {
     criaTabelaBooks();
     populaTabelaBooks();
 });
-
-
