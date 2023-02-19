@@ -5,8 +5,6 @@ class Store {
       this.telefone = telefone
       this.responsavel = responsavel
     }
-  
-    
   }
   
   module.exports = Store
