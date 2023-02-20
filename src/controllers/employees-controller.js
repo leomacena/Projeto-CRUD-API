@@ -47,7 +47,7 @@ class employeesController {
         const result = await EmployeesDAO.inserir(Employees)
 
         // Padrão POST, o status code de recurso criado é o 201, ou seja, houve a criação de um recurso. Abaixo personalizamos a resposta que será mostrada, caso o cadastro se realize. Será mostrada as mensagens abaixo e também o objeto cadastrado
-        res.status(201).send({"Menssagem": "Funcionário adicionado com sucesso!", "Novo fuuncionário: ": result})
+        res.status(201).send({"Mensagem": "Funcionário adicionado com sucesso!", "Novo funcionário: ": result})
     }
 
 
