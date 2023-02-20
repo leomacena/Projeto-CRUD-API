@@ -31,13 +31,13 @@ class customerController {
     static async inserir(req, res){
         // Cria um novo cliente recebendo as informações que vem do corpo da requisição através do req.body     
         const customer = {
-            nome: req.body.id,
-            autor: req.body.nome,
-            editora: req.body.email,
-            idioma: req.body.telefone,
-            paginas: req.body.data_de_nascimento,
+            id: req.body.id,
+            nome: req.body.nome,
+            email: req.body.email,
+            telefone: req.body.telefone,
+            data_de_nascimento: req.body.data_de_nascimento,
             cpf: req.body.cpf,
-            ano: req.body.senha
+            senha: req.body.senha
     
         }
 
