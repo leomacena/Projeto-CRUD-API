@@ -1,5 +1,5 @@
     // classe importada de models, para usar a classe que contém um construtor
-    const Employees = require('../models/Employees')
+    const Employees = require('../models/Employees.js')
 
 	// Classe importada exclusivamente para fazer o acesso ao Banco de Dados. Para qualquer operação, ela será utilizada
     const EmployeesDAO = require('../DAO/EmployeesDAO.js')
