@@ -18,11 +18,15 @@ app.use(cors())
 const bookController = require('./controllers/book-controller.js')
 const customerController = require('./controllers/customer-controller.js')
 const employeesController = require('./controllers/employees-controller.js')
+const salesController = require('./controllers/sales-controller.js')
+const stockController = require('./controllers/stock-controller.js')
 
 // Chama as rotas
 bookController.rotas(app)
 customerController.rotas(app)
 employeesController.rotas(app)
+salesController.rotas(app)
+stockController.rotas(app)
 
 // Exporta o app para ser usado em outro módulo
 module.exports = app            
