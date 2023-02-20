@@ -5,13 +5,13 @@
     const EmployeesDAO = require('../DAO/EmployeesDAO.js')
 
 
-class EmployeesController {
+class employeesController {
     static rotas(app){
         // Rota para os recursos Employees. O parâmetro das rotas aparece na primeira parte entre aspas simples e logo depois são chamados os métodos da classe
-        app.get('/employees', EmployeesController.listar)
-        app.post('/employees', EmployeesController.inserir)
-        app.put('/employees/cpf/:cpf', EmployeesController.atualizaEmployees)
-        app.delete('/employees/cpf/:cpf', EmployeesController.deletarEmployees)
+        app.get('/employees', employeesController.listar)
+        app.post('/employees', employeesController.inserir)
+        app.put('/employees/cpf/:cpf', employeesController.atualizaEmployees)
+        app.delete('/employees/cpf/:cpf', employeesController.deletarEmployees)
     }
 
 
@@ -90,4 +90,4 @@ class EmployeesController {
 }
 
 //  Exporta o employees-controller para poder ser acessado a partir de outros arquivos
-module.exports = EmployeesController
+module.exports = employeesController
