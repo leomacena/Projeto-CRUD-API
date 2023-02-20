@@ -1,6 +1,5 @@
 <h1>PROJETO EM GRUPO</h1>
 
-<br>
 <b>
   
 <h3>Módulo 5 – CRUD API</h3><br>
@@ -29,21 +28,35 @@ O projeto deverá obrigatoriamente:
 <li> Ter o código fonte hospedado em um repositório no Github.</li>
 </ol>
 
-<h2>INSTALAÇÕES NECESSARIAS</h2>
-<ul>
-<li> npm init -y</li>
-<li> npm install express</li>
-<li> npm install -g nodemon</li>
-<li> npm install --save-dev nodemon</li>
-<li> npm install cors</li>
-<li> npm install sqlite3</li>
-</ul>
+<h2>ESTRUTURAÇÃO DO PROJETO E DEPENDÊNCIAS</h2>
 
-<h2>EXECUTAR O PROJETO:</h2>
-<p>⇒ npm start</p>
+Inicia o projeto na pasta desejada com:
+```sh
+npm init -y
+```
+<br>
 
-<h2>EXECUTAR O PROJETO PARA DESENVOLVIMENTO:</h2>
-<p>⇒ npm run dev</p>
+Instalação das dependências:
+```sh
+npm install express
+npm install -g nodemon
+npm install --save-dev nodemon
+npm install cors
+npm install sqlite3
+```
+<br>
+
+No arquivo `package.json` foi criado o script `"start": "node ./src/server.js"`, e para executar o projeto é utilizado:
+```sh
+npm start
+```
+<br>
+
+E para utilizar a ferramenta como desenvolvedor, foi criado o script `"dev": "nodemon ./src/server.js"`, que é executado com o comando:
+```sh
+npm run dev
+```
+<br>
 
 <h2>DIAGRAMA:</h2>
 <p> Tabelas do projeto, com suas respectivas entidades, atributos e relacionamentos</p>
