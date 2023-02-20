@@ -1,9 +1,12 @@
 class Store {
-    constructor(nome, email, telefone, responsavel) {
-      this.nome = nome
-      this.email = email
+    constructor(id, unidade, endereco, telefone, email, horario_abertura, horario_fechmento) {
+      this.id = id
+      this.unidade = unidade
+      this.endereco = endereco
       this.telefone = telefone
-      this.responsavel = responsavel
+      this.email = email
+      this.horario_abertura = horario_abertura
+      this.horario_fechmento = horario_fechmento
     }
   }
   
