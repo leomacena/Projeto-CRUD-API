@@ -47,7 +47,7 @@ O projeto deverá obrigatoriamente:
 
 <h2>DIAGRAMA:</h2>
 <p> Tabelas do projeto, com suas respectivas entidades, atributos e relacionamentos</p>
-![screenshot](https://raw.githubusercontent.com/leomacena/Projeto-CRUD-API/main/Diagram_Bookstore.png)
+<img src="https://raw.githubusercontent.com/leomacena/Projeto-CRUD-API/main/Diagram_Bookstore.png" />
 
 
 
