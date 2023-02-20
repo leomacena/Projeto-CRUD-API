@@ -45,6 +45,11 @@ O projeto deverá obrigatoriamente:
 <h2>EXECUTAR O PROJETO PARA DESENVOLVIMENTO:</h2>
 <p>⇒ npm run dev</p>
 
+<h2>DIAGRAMA:</h2>
+<p> Tabelas do projeto, com suas respectivas entidades, atributos e relacionamentos</p>
+![image](https://user-images.githubusercontent.com/113391188/220003959-bdaf52aa-eb6d-461c-98f9-707152c87b4a.png)
+
+
 
 
 </b>
