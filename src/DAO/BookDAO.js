@@ -26,9 +26,9 @@ class BookDAO {
   }
 
   static inserir(book) {
-    const query = 'INSERT INTO BOOKS (nome, autor, editora, idioma, paginas, ano, id_customers) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO BOOKS (nome, autor, editora, idioma, paginas, ano, valor) VALUES (?, ?, ?, ?, ?, ?, ?)';
     return new Promise((resolve, reject) => {
-      db.run(query, [book.nome, book.autor, book.editora, book.idioma, book.paginas, book.ano, book.id_customers], (err) => {
+      db.run(query, [book.nome, book.autor, book.editora, book.idioma, book.paginas, book.ano, book.valor], (err) => {
         if (err) {
           reject(err);
         }
@@ -37,10 +37,10 @@ class BookDAO {
     });
   }
 
-  static atualizar(id, book) {
-    const query = 'UPDATE BOOKS SET nome = ?, autor = ?, editora = ?, idioma = ?, paginas = ?, ano = ?, id_customers = ? WHERE id = ?';
+  static atualizar(nome, book) {
+    const query = 'UPDATE BOOKS SET nome = ?, autor = ?, editora = ?, idioma = ?, paginas = ?, ano = ?, valor = ? WHERE nome = ?';
     return new Promise((resolve, reject) => {
-      db.run(query, [book.nome, book.autor, book.editora, book.idioma, book.paginas, book.ano, book.id_customers, id], (err) => {
+      db.run(query, [book.nome, book.autor, book.editora, book.idioma, book.paginas, book.ano, book.id_customers, nome], (err) => {
         if (err) {
           reject(err);
         }
@@ -49,14 +49,14 @@ class BookDAO {
     });
   }
 
-  static excluir(id) {
-    const query = 'DELETE FROM BOOKS WHERE id = ?';
+  static deletar(nome) {
+    const query = 'DELETE FROM BOOKS WHERE nome = ?';
     return new Promise((resolve, reject) => {
-      db.run(query, [id], (err) => {
+      db.run(query, [nome], (err) => {
         if (err) {
           reject(err);
         }
-        resolve({ mensagem: 'Livro excluído com sucesso', id: id });
+        resolve({ mensagem: 'Livro excluído com sucesso', nome: nome });
       });
     });
   }

@@ -49,7 +49,7 @@ class StockDAO {
     });
   }
 
-  static excluir(id) {
+  static deletar(id) {
     const query = 'DELETE FROM STOCK WHERE id = ?';
     return new Promise((resolve, reject) => {
       db.run(query, [id], (err) => {

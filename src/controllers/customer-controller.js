@@ -31,7 +31,6 @@ class customerController {
     static async inserir(req, res){
         // Cria um novo cliente recebendo as informações que vem do corpo da requisição através do req.body     
         const customer = {
-            id: req.body.id,
             nome: req.body.nome,
             email: req.body.email,
             telefone: req.body.telefone,
@@ -45,14 +44,14 @@ class customerController {
         const result = await CustomerDAO.inserir(customer)
 
         // Padrão POST, o status code de recurso criado é o 201, ou seja, houve a criação de um recurso. Abaixo personalizamos a resposta que será mostrada, caso o cadastro se realize. Será mostrada as mensagens abaixo e também o objeto cadastrado
-        res.status(201).send({"Mensagem": "Cliente adicionado com sucesso!", "Novo Cliente: ": result})
+        res.status(201).send({"Mensagem": "Cliente adicionado com sucesso!", "Novo Cliente: ": customer})
        
     }
 
       //Classe CustomerDAO é chamada com o método atualizaCustomer
     static async atualizaCustomer(req,res) {
         // instanciamos a nossa classe customer que foi importada de models como um modelo
-        const customer = new Customer(req.body.id, req.body.nome, req.body.email, req.body.telefone, req.body.data_de_nascimento, req.body.cpf, req.body.senha)
+        const customer = new Customer(req.body.nome, req.body.email, req.body.telefone, req.body.data_de_nascimento, req.body.cpf, req.body.senha)
 
         // Se o nome do cliente não for encontrado, entra no if e dá um 404 (status code 404), que quer dizer que o conteúdo não foi encontrado
         if (!customer) {
@@ -76,14 +75,14 @@ class customerController {
 
     static async deletarCustomer(req, res){
         // Busca o nome na lista de clientes através da classe CustomerDAO com o método deletar, passando por parâmetro o cpf que virá da URL em nossa rota, ou seja, em nosso endpoint através do req.params.cpf
-        const customer = await BookDAO.deletar(req.params.cpf)
+        const customer = await CustomerDAO.deletar(req.params.cpf)
         // Se o cliente não for encontrado, devolve um erro staus code 404
         if(!customer){
             res.status(404).send('cliente não encontrado')
         }
 
         // Status code 204 NÃO Devolve o cliente deletado || O 200 é solicitação bem sucedida. Pode ser usada aqui, se for usada, a resposta abaixo pode ser mostrada
-        res.status(204).send({"Mensagem: ": `O cliente ${customer.nome} foi deletado`} )
+        res.status(204).send({"Mensagem: ": `O cliente ${Customer.nome} foi deletado`} )
     }
 }
 

@@ -26,9 +26,9 @@ class EmployeesDAO {
   }
 
   static inserir(employees) {
-    const query = 'INSERT INTO livros (nome, matricula, cargo, email, telefone, nascimento, cpf, senha, id_stores) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO EMPLOYEES (nome, matricula, cargo, email, telefone, data_de_nascimento, cpf, senha, id_stores) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     return new Promise((resolve, reject) => {
-      db.run(query, [employees.nome, employees.matricula, employees.cargo, employees.email, employees.telefone, employees.nascimento, employees.cpf, employees.senha, employees.id_stores], (err) => {
+      db.run(query, [employees.nome, employees.matricula, employees.cargo, employees.email, employees.telefone, employees.data_de_nascimento, employees.cpf, employees.senha, employees.id_stores], (err) => {
         if (err) {
           reject(err);
         }
@@ -38,9 +38,9 @@ class EmployeesDAO {
   }
 
   static atualizar(id, employees) {
-    const query = 'UPDATE EMPLOYEES SET nome = ?, matricula = ?, cargo = ?, email = ?, telefone = ?, nascimento = ?, cpf = ?, senha = ?, id_stores = ? WHERE id = ?';
+    const query = 'UPDATE EMPLOYEES SET nome = ?, matricula = ?, cargo = ?, email = ?, telefone = ?, data_de_nascimento = ?, cpf = ?, senha = ?, id_stores = ? WHERE id = ?';
     return new Promise((resolve, reject) => {
-      db.run(query, [employees.nome, employees.matricula, employees.cargo, employees.email, employees.telefone, employees.nascimento, employees.cpf, employees.senha, employees.id_stores, id], (err) => {
+      db.run(query, [employees.nome, employees.matricula, employees.cargo, employees.email, employees.telefone, employees.data_de_nascimento, employees.cpf, employees.senha, employees.id_stores, id], (err) => {
         if (err) {
           reject(err);
         }
@@ -49,7 +49,7 @@ class EmployeesDAO {
     });
   }
 
-  static excluir(id) {
+  static deletar(id) {
     const query = 'DELETE FROM EMPLOYEES WHERE id = ?';
     return new Promise((resolve, reject) => {
       db.run(query, [id], (err) => {

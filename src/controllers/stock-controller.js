@@ -65,7 +65,7 @@ class stockController {
 
 
         // Tudo correndo certo, uma mensagem será informada com o status de bem sucedido (200). Também personalizamos um pouco o response (resposta) para mostrar como ficaram as informações do usuário.
-        res.status(200).send({"Mensagem": "Item atualizado com Sucesso", "Nova atualização: ": stock})
+        res.status(201).send({"Mensagem": "Item atualizado com Sucesso", "Nova atualização: ": stock})
     }
 
 

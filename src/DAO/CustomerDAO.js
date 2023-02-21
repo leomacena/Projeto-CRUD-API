@@ -26,9 +26,9 @@ class CustomerDAO {
   }
 
   static inserir(customer) {
-    const query = 'INSERT INTO CUSTOMERS (nome, email, telefone, data_nascimento, cpf, senha) VALUES (?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO CUSTOMERS (nome, email, telefone, data_de_nascimento, cpf, senha) VALUES (?, ?, ?, ?, ?, ?)';
     return new Promise((resolve, reject) => {
-      db.run(query, [customer.nome, customer.email, customer.telefone, customer.data_nascimento, customer.cpf, customer.senha], (err) => {
+      db.run(query, [customer.nome, customer.email, customer.telefone, customer.data_de_nascimento, customer.cpf, customer.senha], (err) => {
         if (err) {
           reject(err);
         }
@@ -37,10 +37,10 @@ class CustomerDAO {
     });
   }
 
-  static atualizar(id, customer) {
-    const query = 'UPDATE CUSTOMERS SET nome = ?, email = ?, telefone = ?, data_nascimento = ?, cpf = ?, senha = ? WHERE id = ?';
+  static atualizar(cpf, customer) {
+    const query = 'UPDATE CUSTOMERS SET nome = ?, email = ?, telefone = ?, data_de_nascimento = ?, cpf = ?, senha = ? WHERE cpf = ?';
     return new Promise((resolve, reject) => {
-      db.run(query, [customer.nome, customer.email, customer.telefone, customer.data_nascimento, customer.cpf, customer.senha, id], (err) => {
+      db.run(query, [customer.nome, customer.email, customer.telefone, customer.data_de_nascimento, customer.cpf, customer.senha, cpf], (err) => {
         if (err) {
           reject(err);
         }
@@ -49,14 +49,14 @@ class CustomerDAO {
     });
   }
 
-  static excluir(id) {
-    const query = 'DELETE FROM CUSTOMERS WHERE id = ?';
+  static deletar(cpf) {
+    const query = 'DELETE FROM CUSTOMERS WHERE cpf = ?';
     return new Promise((resolve, reject) => {
-      db.run(query, [id], (err) => {
+      db.run(query, [cpf], (err) => {
         if (err) {
           reject(err);
         }
-        resolve({ mensagem: 'Cliente excluído com sucesso', id: id });
+        resolve({ mensagem: 'Cliente excluído com sucesso', cpf: cpf });
       });
     });
   }

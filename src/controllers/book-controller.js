@@ -36,7 +36,8 @@ class bookController {
             editora: req.body.editora,
             idioma: req.body.idioma,
             paginas: req.body.paginas,
-            ano: req.body.ano
+            ano: req.body.ano,
+            valor: req.body.valor
     
         }
 
@@ -51,7 +52,7 @@ class bookController {
       //Classe BookDAO é chamada com o método atualizaBook
     static async atualizaBook(req,res) {
         // instanciamos a nossa classe book que foi importada de models como um modelo
-        const book = new Book(req.body.nome, req.body.autor, req.body.editora, req.body.idioma, req.body.paginas, req.body.ano)
+        const book = new Book(req.body.nome, req.body.autor, req.body.editora, req.body.idioma, req.body.paginas, req.body.ano, req.body.valor)
 
         // Se o nome do livro não for encontrado, entra no if e dá um 404 (status code 404), que quer dizer que o conteúdo não foi encontrado
         if (!book) {
@@ -68,7 +69,7 @@ class bookController {
 
 
         // Tudo correndo certo, uma mensagem será informada com o status de bem sucedido (200). Também personalizamos um pouco o response (resposta) para mostrar como ficaram as informações do usuário.
-        res.status(200).send({"Mensagem": "Livro atualizado com Sucesso", "Nova atualização: ": book})
+        res.status(201).send({"Mensagem": "Livro atualizado com Sucesso", "Nova atualização: ": book})
     }
 
 

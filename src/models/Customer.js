@@ -1,6 +1,5 @@
 class Customer{
-    constructor(id, nome, email, telefone, data_de_nascimento, cpf, senha){
-        this.id = id
+    constructor(nome, email, telefone, data_de_nascimento, cpf, senha){
         this.nome = nome
         this.email = email
         this.telefone = telefone

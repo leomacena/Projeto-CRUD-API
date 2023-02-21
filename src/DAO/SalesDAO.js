@@ -49,7 +49,7 @@ class SalesDAO {
     });
   }
 
-  static excluir(id) {
+  static deletar(id) {
     const query = 'DELETE FROM SALES WHERE id = ?';
     return new Promise((resolve, reject) => {
       db.run(query, [id], (err) => {

@@ -9,19 +9,19 @@ const db = new sqlite3.Database('./database.db');
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const STORES_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "STORES" (
-    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "UNIDADE" varchar(80),
-    "ENDERECO" varchar(100),
-    "TELEFONE" varchar(20),
-    "EMAIL" varchar(90),
-    "HORARIO_ABERTURA" time,
-    "HORARIO_FECHAMENTO" time
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "unidade" varchar(80),
+    "endereco" varchar(100),
+    "telefone" varchar(20),
+    "email" varchar(90),
+    "horario_abertura" time,
+    "horario_fechamento" time
 );
 `;
 
 // inserção dos registros na tabela Stores (Lojas).
 const ADD_STORES_DATA = `
-INSERT INTO STORES (ID, UNIDADE, ENDERECO, TELEFONE, EMAIL, HORARIO_ABERTURA, HORARIO_FECHAMENTO)
+INSERT INTO STORES (id, unidade, endereco, telefone, email, horario_abertura, horario_fechamento)
 VALUES
 (1, 'Bookstore RJ', 'Rua A, 123, Leblon, Rio de Janeiro/RJ ', '(21) 1111-1111', 'store.rj@bookstore.com', '09:00:00', '21:00:00'),
 (2, 'Bookstore SP', 'Rua B, 456, Vila Olímpia, São Paulo/SP', '(11) 2222-2222', 'store.sp@bookstore.com', '10:00:00', '22:00:00'),
@@ -47,20 +47,20 @@ function populaTabelaStores() {
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const BOOKS_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "BOOKS" (
-    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "NOME" varchar(70),
-    "AUTOR" varchar(90),
-    "EDITORA" varchar(70),
-    "IDIOMA" varchar(40),
-    "PAGINAS" integer,
-    "ANO" integer,
-    "VALOR" decimal (10, 2)
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nome" varchar(70),
+    "autor" varchar(90),
+    "editora" varchar(70),
+    "idioma" varchar(40),
+    "paginas" integer,
+    "ano" integer,
+    "valor" decimal (10, 2)
 );
 `;
 
 // inserção dos registros na tabela Books (livros).
 const ADD_BOOKS_DATA = `
-INSERT INTO BOOKS (ID, NOME, AUTOR, EDITORA, IDIOMA, PAGINAS, ANO, VALOR)
+INSERT INTO BOOKS (id, nome, autor, editora, idioma, paginas, ano, valor)
 VALUES
 (1, 'Pai Rico, Pai Pobre', 'Robert T. Kiyosaki', 'Alta Books', 'Português', '336', '2018', 34.99),
 (2, 'Pedagogia do Oprimido', 'Paulo Freire', 'Paz & Terra', 'Português', '256', '2019', 29.99),
@@ -98,18 +98,18 @@ function populaTabelaBooks() {
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const STOCK_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "STOCK" (
-    "ID_BOOKS" integer,    
-    "ID_STORES" integer,    
-    "QUANTIDADE" integer,
-    PRIMARY KEY (ID_BOOKS, ID_STORES),
-    FOREIGN KEY(ID_BOOKS) REFERENCES BOOKS(ID),
-    FOREIGN KEY(ID_STORES) REFERENCES STORES(ID)    
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_books" integer,    
+    "id_stores" integer,    
+    "quantidade" integer,
+    FOREIGN KEY(id_books) REFERENCES BOOKS(id),
+    FOREIGN KEY(id_stores) REFERENCES STORES(id)    
 );
 `;
 
 // inserção dos registros na tabela Stock (Estoque).
 const ADD_STOCK_DATA = `
-INSERT INTO STOCK (ID_BOOKS, ID_STORES, QUANTIDADE)
+INSERT INTO STOCK (id_books, id_stores, quantidade)
 VALUES
 (1, 1, 5),
 (1, 2, 5),
@@ -177,23 +177,23 @@ function populaTabelaStock() {
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const EMPLOYEES_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "EMPLOYEES" (
-    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "NOME" varchar(90),
-    "MATRICULA" varchar (10),
-    "CARGO" varchar (40),
-    "EMAIL" varchar(90),
-    "TELEFONE" varchar(20),
-    "DATA_DE_NASCIMENTO" date,
-    "CPF" varchar(14), 
-    "SENHA" varchar(8),
-    "ID_STORES" integer,
-    FOREIGN KEY(ID_STORES) REFERENCES STORES(ID)    
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nome" varchar(90),
+    "matricula" varchar (10),
+    "cargo" varchar (40),
+    "email" varchar(90),
+    "telefone" varchar(20),
+    "data_de_nascimento" date,
+    "cpf" varchar(14), 
+    "senha" varchar(8),
+    "id_stores" integer,
+    FOREIGN KEY(id_stores) REFERENCES STORES(id)    
 );
 `;
 
 // inserção dos registros na tabela Employees (Funcionários).
 const ADD_EMPLOYEES_DATA = `
-INSERT INTO EMPLOYEES (ID, NOME, MATRICULA, CARGO, EMAIL, TELEFONE, DATA_DE_NASCIMENTO, CPF, SENHA, ID_STORES)
+INSERT INTO EMPLOYEES (id, nome, matricula, cargo, email, telefone, data_de_nascimento, cpf, senha, id_stores)
 VALUES
 (1, 'Hannah Davis', '92458617', 'Gerente', 'hannah.davis@bookstore.com', '(51) 99123-4567', '04-09-1992', '722.831.930-92', '********', 3),
 (2, 'Liam Patel', '73102859', 'Consultor(a)', 'liam.patel@bookstore.com', '(51) 98912-3456', '23-07-1998', '514.868.746-62', '********', 3),
@@ -225,19 +225,19 @@ function populaTabelaEmployees() {
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const CUSTOMERS_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "CUSTOMERS" (
-    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "NOME" varchar(90),
-    "EMAIL" varchar(90),
-    "TELEFONE" varchar(20),
-    "DATA_DE_NASCIMENTO" date,
-    "CPF" varchar(14), 
-    "SENHA" varchar(8)
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nome" varchar(90),
+    "email" varchar(90),
+    "telefone" varchar(20),
+    "data_de_nascimento" date,
+    "cpf" varchar(14), 
+    "senha" varchar(8)
 );
 `;
 
 // inserção dos registros na tabela Customers (clientes).
 const ADD_CUSTOMERS_DATA = `
-INSERT INTO CUSTOMERS (ID, NOME, EMAIL, TELEFONE, DATA_DE_NASCIMENTO, CPF, SENHA)
+INSERT INTO CUSTOMERS (id, nome, email, telefone, data_de_nascimento, cpf, senha)
 VALUES
 (1, 'Ana Paula', 'ana.paula@example.com', '(11) 98765-4321', '15-03-1990', '111.222.333-44', '********'),
 (2, 'Bruno Silva', 'b.silva@example.com', '(21) 99999-8881', '27-07-1985', '222.333.444-55', '********'),
@@ -275,22 +275,22 @@ function populaTabelaCustomers() {
 // Declaração SQL usada para criar a estrutura da tabela no banco de dados, permitindo que possamos inserir e consultar dados posteriormente.
 const SALES_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "SALES" (
-    "ID_CUSTOMERS" integer,    
-    "ID_BOOKS" integer,    
-    "QUANTIDADE_ADQUIRIDA" integer,
-    "ID_STORES" integer,    
-    "DATA_COMPRA" date,
-    "HORARIO_COMPRA" time,
-    PRIMARY KEY (ID_CUSTOMERS, ID_BOOKS, ID_STORES),
-    FOREIGN KEY(ID_CUSTOMERS) REFERENCES CUSTOMERS(ID),
-    FOREIGN KEY(ID_BOOKS) REFERENCES BOOKS(ID),
-    FOREIGN KEY(ID_STORES) REFERENCES STORES(ID)    
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_customers" integer,    
+    "id_books" integer,    
+    "quantidade_adquirida" integer,
+    "id_stores" integer,    
+    "data_compra" date,
+    "horario_compra" time,
+    FOREIGN KEY(id_customers) REFERENCES CUSTOMERS(id),
+    FOREIGN KEY(id_books) REFERENCES BOOKS(id),
+    FOREIGN KEY(id_stores) REFERENCES STORES(id)    
 );
 `;
 
 // inserção dos registros na tabela Customers (clientes).
 const ADD_SALES_DATA = `
-INSERT INTO SALES (ID_CUSTOMERS, ID_BOOKS, QUANTIDADE_ADQUIRIDA, ID_STORES, DATA_COMPRA, HORARIO_COMPRA)
+INSERT INTO SALES (id_customers, id_books, quantidade_adquirida, id_stores, data_compra, horario_compra)
 VALUES
 (2, 7, 1, 1, '02-01-2023', '14:07:11'),
 (15, 3, 1, 1, '03-02-2023', '15:30:02'),
