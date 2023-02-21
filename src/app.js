@@ -20,7 +20,7 @@ const customerController = require('./controllers/customer-controller.js')
 const employeesController = require('./controllers/employees-controller.js')
 const salesController = require('./controllers/sales-controller.js')
 const stockController = require('./controllers/stock-controller.js')
-const storeController = require('./controllers/Store-controller')
+const storeController = require('./controllers/store-controller.js')
 
 // Chama as rotas
 bookController.rotas(app)
