@@ -423,10 +423,45 @@ class BookDAO {
 module.exports = BookDAO;
 ```
 
+## ARQUIVOS: TESTES
 
+Teste do CRUD foram realizados com sucesso.
+<br>
 
+<h3>GET (READ)</h3>
+<br>
+<img src="https://user-images.githubusercontent.com/113394226/220766385-dcc5798a-fc5a-4288-840b-dc62643a7178.PNG">
 
+## 
 
+<h3>POST (CREATE)</h3>
+<br>
+<img src="https://user-images.githubusercontent.com/113394226/220766884-65e318c2-91c9-491b-886f-7a66d84e86c8.PNG">
+<br>
+GET depois que foi realizado o POST
+<br>
+<img src="https://user-images.githubusercontent.com/113394226/220767128-c9428b08-a6e6-4f46-b6be-f6c222a2b888.PNG">
 
+##
+
+<h3>PUT (UPDATE)</h3>
+<br>
+<img src="https://user-images.githubusercontent.com/113394226/220767497-0d015d32-5fa9-47c4-a12a-cfbd8f34c265.PNG">
+<br>
+GET depois que foi realizado o PUT
+<br>
+<img src="https://user-images.githubusercontent.com/113394226/220767586-366c7213-ec4a-44ff-bb47-abb63823f1a5.PNG">
+
+##
+
+<h3>DELETE (DELETE)</h3>
+<br>
+<img src="https://user-images.githubusercontent.com/113394226/220767747-2ec5d680-c14b-49ed-a900-5bb37bf456f1.PNG">
+<br>
+GET depois que foi realizado o DELETE
+<br>
+<img src="https://user-images.githubusercontent.com/113394226/220767849-c54506f9-d644-4c0f-b9cb-11899b4bf8d3.PNG">
+
+##
 
 </b>
