@@ -60,7 +60,7 @@ npm run dev
 
 ## DIAGRAMA:
 <p> Tabelas do projeto, com suas respectivas entidades, atributos e relacionamentos</p>
-<img src="https://raw.githubusercontent.com/leomacena/Projeto-CRUD-API/main/Diagram_Bookstore.png" />
+<img src="https://user-images.githubusercontent.com/113391188/220769007-0183adee-dc5f-4c54-ab48-07d729ed33c0.png" />
 
 <br>
 <br>
