@@ -423,7 +423,7 @@ class BookDAO {
 module.exports = BookDAO;
 ```
 
-## ARQUIVOS: TESTES
+## TESTES
 
 Teste do CRUD foram realizados com sucesso.
 <br>
