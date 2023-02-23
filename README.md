@@ -213,6 +213,12 @@ Exportação do objeto "db" para que ele possa ser utilizado em outros módulos 
 ```js
 module.exports = db;
 ```
+<br>
+Para executar o create-and-populate, tem que estar dentro da pasta do arquivo e usar o comando:
+
+```sh
+node create-and-populate.js
+```
 
 <br>
 
